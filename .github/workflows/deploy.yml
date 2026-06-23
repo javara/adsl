@@ -1,0 +1,30 @@
+name: Deploy to Neocities
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.html'
+      - '**.htm'
+      - '**.css'
+      - '**.js'
+      - 'images/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Upload all files to Neocities (excluding .github)
+        run: |
+          find . -type f \
+            ! -path "./.github/*" \
+            | while read file; do
+                curl -s -o /dev/null \
+                  -F "file=@${file}" \
+                  -H "Authorization: Bearer ${{ secrets.NEOCITIES_API_KEY }}" \
+                  https://neocities.org/api/upload
+              done

@@ -9,7 +9,8 @@ on:
       - '**.css'
       - '**.js'
       - 'images/**'
-
+  workflow_dispatch:
+    
 jobs:
   deploy:
     runs-on: ubuntu-latest

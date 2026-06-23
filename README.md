@@ -1,9 +1,10 @@
+```Plaintext
 +-----------------------------------------------------------+
-|   A D S L - W E B   ( 2 0 0 1   R E S T O R A T I O N )   |
+|   A D S L - W E B   ( 2 0 0 1)   R E S T O R A T I O N    |
 +-----------------------------------------------------------+
 |   Static HTML • No JS • GIFs • Tables • Vintage Internet  |
 +-----------------------------------------------------------+
-
+```
 # 🌐 **README Retro‑Web 2001 + Profesional/DevOps (versión final cohesiva)**
 
 ```markdown

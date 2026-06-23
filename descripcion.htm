@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles.css">
+<TITLE>Descripción - ADSL</TITLE>
+	
+</HEAD>
+<BODY BGCOLOR=WHITE>
+<FONT FACE="Arial">
+<CENTER><FONT SIZE=5><U><B>2.1. Descripción</B></U></FONT></CENTER>
+<P ALIGN="JUSTIFY">
+	Fue desarrollada en 1980 por el investigador Joe Lechleider, a partir de la tecnología de acceso desarrollada para BRI , RDSI.<BR><BR>
+	En una primera etapa coexistían dos técnicas de modulación para ADSL:
+</P>
+<UL>
+	<LI>CAP: Carrierless Amplitude-Phase odulation.</LI>
+</UL>
+<UL>
+	<LI>DT: Discrete ulti-Tone odulation.</LI>
+</UL>
+<P ALIGN="JUSTIFY">
+	Pero, finalmente, los organismos de estandarización (ANSI, ETSI e ITU) se han decantado por la solución DT.<BR><BR>
+	Esta modulación (DT) consiste en el empleo de múltiples portadoras, en lugar de una (como ocurre en los módems de banda vocal). Cada una de estas portadoras, denominadas subportadoras, es modulada en cuadratura (modulación QA), por parte del flujo total de datos que se van a transmitir. Estas subportadoras están separadas entre sí 43125 KHz, y el ancho de banda que ocupa cada subportadora modulada es de 4 KHz.<BR><BR>
+	El reparto del flujo de datos entre subportadoras se hace en función de la estimación de la relación señal a ruido en la banda asignada a cada una de ellas. Cuanto mayor es la relación, tanto mayor es el caudal que se puede transmitir por una subportadora. Esta estimación se lleva a cabo al comienzo, cuando se establece el enlace entre el terminal del usuario y el terminal central. La técnica de modulación usada es la misma en ambos terminales. La única diferencia radica en que el terminal central dispone de hasta 256 portadoras, mientras que el terminal de usuario sólo puede disponer, como máximo de 32. La modulación es bastante complicada; sin embargo, el algoritmo de modulación se traduce en una IFFT en el modulador, y en una FFT en el demodulador.
+</P>
+<CENTER>
+	<B>Figura 4 -Gráfico de la modulación</B><BR><BR>
+	<IMG SRC="images/figura04.gif" WIDTH=477 HEIGHT=224 ALT="Figura 4">
+</CENTER>
+<P ALIGN="JUSTIFY">
+	Esta tecnología permite la utilización simultánea de la red telefónica básica (RTB) y del servicio ADSL. Es decir, el usuario puede hablar por teléfono a la vez que navega por Internet.<BR><BR>
+	Para ello, establece tres canales independientes sobre la línea telefónica estándar:
+</P>
+<UL>
+	<LI>Un canal de alta velocidad de envío de datos.</LI>
+</UL>
+<UL>
+	<LI>Un canal de alta velocidad de recepción de datos.</LI>
+</UL>
+<UL>
+	<LI>Un tercer canal para la comunicación normal de voz (RTB).</LI>
+</UL>
+<P ALIGN="JUSTIFY">
+	Los dos canales de datos son asimétricos, es decir, no tienen la misma velocidad de transmisión de datos, siendo considerablemente mayor la del canal de recepción que la del canal de envío de datos.<BR><BR>
+	Esta asimetría tiene sentido en sistemas en los que se dé prioridad al acceso a información (por ejemplo, Internet) en los que el volumen de información en sentido red-usuario es mucho mayor que en sentido contrario.
+</P>
+<CENTER>
+	<B>Figura 5 - Configuración Sistema ADSL</B><BR><BR>
+	<IMG SRC="images/figura05.gif" WIDTH=363 HEIGHT=233 ALT="Figura 5">
+</CENTER>
+<BR><HR COLOR=LIGHTBLUE WIDTH=75% SIZE=4 ALIGN=CENTER NOSHADE><BR>	
+<TABLE ALIGN=CENTER BORDER=0 WIDTH=99%>
+	<TR ALIGN=CENTER>
+		<TD WIDTH=33%><A HREF="introduccion.htm" onMouseOver="cuadros.src='images/fant0.jpg'" onMouseOut="cuadros.src='images/fant.jpg'" onmousedown="cuadros.src='images/fant1.jpg'">
+			<IMG SRC="images/fant.jpg" NAME="cuadros" BORDER=0></A></TD>
+		<TD WIDTH=33%><A HREF="index-adsl.htm" onmouseover="cuadre.src='images/inicio0.jpg'" onMouseOut="cuadre.src='images/inicio.jpg'">
+			<IMG SRC="images/inicio.jpg" NAME="cuadre" BORDER=0></A></TD>
+	        <TD WIDTH=33%><A HREF="evolucion.htm" onmouseover="cuadro.src='images/fsig0.jpg'" onMouseOut="cuadro.src='images/fsig.jpg'" onmousedown="cuadro.src='images/fsig1.jpg'">
+			<IMG SRC="images/fsig.jpg" NAME="cuadro" BORDER=0></A></TD>
+	</TR>
+</TABLE>
+
+</FONT>
+</BODY>
+</HTL>

@@ -1,0 +1,60 @@
+﻿<HTML>
+  <HEAD>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styles.css">
+<TITLE>HOME PAGE - ADSL</TITLE>
+<meta name="keywords" content="ADSL, tecnología, telecomunicaciones, internet, historia de internet, retro web, web revival, geocities, 2001, telemática, redes, banda ancha, módem, DSLAM, ATM, vintage internet, nostalgia, informática, telefonía, Javara Factory">
+<meta name="description" content="Trabajo sobre la ADSL">
+<SCRIPT language="JavaScript">
+<!--
+var current = 0;
+var x = 0;
+var speed = 100;
+var speed2 = 2000;
+function initArray(n) {
+  this.length = n;
+  for (var i = 1; i <= n; i++) {
+    this[i] = ' ';
+  }
+}
+typ = new initArray(4);
+typ[0] = "Bienvenido a la web de ADSL por Javara ...";
+typ[1] = "Este es tu punto de referencia de ADSL ...";
+typ[2] = "Sacia tu sed de sabiduría, todo en la lengua que entiendes ...";
+typ[3] = "Si quieres colaborar, o criticar: javara AT gmx DOT com ...";
+function typewrite() {
+  var m = typ[current];
+  window.status = m.substring(0, x++) + '_';
+  if (x == m.length + 1) {
+    x = 0;
+    current++;
+    if (current > typ.length - 1) {
+      current = 0;
+    }
+    setTimeout(typewrite, speed2);
+  } else {
+    setTimeout(typewrite, speed);
+  }
+}
+typewrite();
+// -->
+</SCRIPT>
+<SCRIPT language="JavaScript">
+<!--
+var txt = " .:: Bienvenido a la web de ADSL ::. ";
+var espera = 200;
+var refresco = null;
+function rotulo_title() {
+  document.title = txt;
+  txt = txt.substring(1, txt.length) + txt.charAt(0);
+  refresco = setTimeout(rotulo_title, espera);
+}
+rotulo_title();
+// -->
+</SCRIPT>
+</HEAD>
+<FRAMESET COLS="160,*" BORDER="0">
+  <FRAME SRC="menu.htm" NAME="F1" SCROLLING="NO" NORESIZE>
+  <FRAME SRC="home.htm" NAME="F2" SCROLLING="OPTIONAL">
+</FRAMESET>
+</HTML>

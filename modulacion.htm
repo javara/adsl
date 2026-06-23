@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles.css">
+<TITLE>Descripción de la modulación - ADSL</TITLE>
+	
+</HEAD>
+<BODY BGCOLOR=WHITE>
+<FONT FACE="Arial">
+<CENTER><FONT SIZE=5><U><B>2.1.4. Descripción de la modulación</B></U></FONT></CENTER>
+<P ALIGN="JUSTIFY">
+	Es una técnica de modulación para la transmisión de datos a gran velocidad sobre el par de cobre. La primera diferencia entre esta técnica de modulación y las usadas por los módems en banda vocal (V.32 a V.90) es que éstos últimos sólo transmiten en la banda de frecuencias usada en telefonía (300 Hz a 3.400 Hz), mientras que los módems ADSL operan en un margen de frecuencias mucho más amplio que va desde los 24 KHz hasta los 1.104 KHz, aproximadamente.<BR><BR>
+	Otra diferencia entre el ADSL y otros módems es que el ADSL puede coexistir en un mismo bucle de abonado con el servicio telefónico, cosa que no es posible con un módem convencional pues opera en banda vocal, la misma que la telefonía.<BR><BR>
+	Al tratarse de una modulación en la que se transmiten diferentes caudales en los sentidos Usuario -> Red y Red -> Usuario, el módem ADSL situado en el extremo del usuario es distinto del ubicado al otro lado del bucle, en la central local. En la <B>Figura 7</B>: <I>Enlace ADSL</I> se muestra un enlace ADSL entre un usuario y la central local de la que depende. En dicha figura se observa que además de los módemes situados en casa del usuario (ATU-R) y en la central (ATU-C) delante de cada uno de ellos se ha de colocar un dispositivo denominado "splitter". Este dispositivo no es más que un conjunto de dos filtros: uno paso alto y otro paso bajo. La finalidad de estos filtros es la de separar las señales transmitidas por el bucle de modo que las señales de baja frecuencia (telefonía) de las de alta frecuencia (ADSL).
+</P>
+<CENTER>
+	<B>Figura 7- Enlace ADSL</B><BR><BR>
+	<IMG SRC="images/figura07.gif" WIDTH=446 HEIGHT=213 ALT="Figura 7"><BR><BR>
+	<B>Figura 8- Funcionamiento del Splitter</B><BR><BR>
+	<IMG SRC="images/figura08.gif" WIDTH=442 HEIGHT=210 ALT="Figura 8">
+</CENTER>
+<P ALIGN="JUSTIFY">
+	En una primera etapa coexistieron dos técnicas de modulación para el ADSL: CAP y DT. Finalmente los organismos de estandarización (ANSI, ETSI e ITU) se han decantado por la solución DT. Básicamente consiste en el empleo de múltiples portadoras y no sólo una, que es lo que se hace en los módems de banda vocal. Cada una de estas portadoras (denominadas subportadoras) es modulada en cuadratura (modulación QA) por una parte del flujo total de datos que se van a transmitir. Estas subportadoras están separadas entre sí 4,3125 KHz, y el ancho de banda que ocupa cada subportadora modulada es de 4 KHz. El reparto del flujo de datos entre subportadoras se hace en función de la estimación de la relación Señal/Ruido en la banda asignada a cada una de ellas. Cuanto mayor es esta relación, tanto mayor es el caudal que puede transmitir por una subportadora. 
+	Esta estimación de la relación Señal/Ruido se hace al comienzo, cuando se establece el enlace entre el ATU-R y el ATU-C, por medio de una secuencia de entrenamiento predefinida. La técnica de modulación usada es la misma tanto en el ATU-R como en el ATU-C. La única diferencia estriba en que el ATU-C dispone de hasta 256 subportadoras, mientras que el ATU-R sólo puede disponer como máximo de 32. La modulación parece y realmente es bastante complicada, pero el algoritmo de modulación se traduce en una IFFT en el modulador, y en una FFT en el demodulador situado al otro lado del bucle. Estas operaciones se pueden efectuar fácilmente si el núcleo del módem se desarrolla sobre un DSP.
+</P>
+<CENTER>
+	<B>Figura 9- odulación ADSL DT con FD</B><BR><BR>
+	<IMG SRC="images/figura09.gif" WIDTH=419 HEIGHT=197 ALT="Figura 9"><BR><BR>
+	<B>Figura 10- odulación ADSL DT con cancelación de ecos</B>				<BR><BR>
+	<IMG SRC="images/figura10.gif" WIDTH=419 HEIGHT=329 ALT="Figura 10">
+</CENTER>
+<P ALIGN="JUSTIFY">Como se puede comprobar, la modulación DT empleada parece y realmente es bastante complicada, pero el algoritmo de modulación se traduce en una IFFT en el modulador, y en una FFT en el demodulador situado al otro lado del bucle. Estas operaciones se pueden efectuar fácilmente si el núcleo del módem se desarrolla sobre un DSP.</P>
+<UL>
+	<LI>El modulador del ATU-C, hace una IFFT de 512 muestras sobre el flujo de datos que se ha de enviar en sentido descendente.</LI><BR><BR>
+	<LI>El modulador del ATU-R, hace una IFFT de 64 muestras sobre el flujo de           datos que se ha de enviar en sentido ascendente.</LI><BR><BR>
+	<LI>El demodulador del ATU-C, hace una FFT de 64 muestras tomadas de la señal "upstream" que recibe.</LI><BR><BR>
+	<LI>El demodulador del ATU-R, hace una FFT, sobre 512 muestras de la señal ascendente recibida.</LI>
+</UL>
+<P ALIGN="JUSTIFY">
+	En las dos figuras anteriores se han presentado las dos modalidades dentro del ADSL con modulación DT: FD y cancelación de ecos. En la primera, los espectros de las señales ascendente y descendente no se solapan, lo que simplifica el diseño de los módems, aunque reduce la capacidad de transmisión en sentido descendente, no tanto por el menor número de subportadoras disponibles como por el hecho de que las de menor frecuencia, aquéllas para las que la atenuación del par de cobre es menor, no están disponibles. La segunda modalidad, basada en un cancelador de ecos para la separación de las señales correspondientes a los dos sentidos de transmisión, permite mayores caudales a costa de una mayor complejidad en el diseño.<BR><BR>
+	En la <B>Figura 9</B>: <I>odulación ADSL DT con FD</I> y en <B>la Figura 10</B>: <I>odulación ADSL DT con cancelación de ecos</I> se muestran los espectros de las señales transmitidas por los módems ADSL tanto en sentido ascendente como descendente. Como se puede ver, los espectros nunca se solapan con la banda reservada para el servicio telefónico básico (POTS) y en cambio sí que se solapan con los correspondientes al acceso básico RDSI. Por ello el ADSL y el acceso básico RDSI son incompatibles.<BR><BR>
+	En un par de cobre la atenuación por unidad de longitud aumenta a medida que se incrementa la frecuencia de las señales transmitidas. Y cuanto mayor es la longitud del bucle, tanto mayor es la atenuación total que sufren las señales transmitidas. Ambas cosas explican que el caudal máximo que se puede conseguir mediante los módems ADSL varíe en función de la longitud del bucle de abonado. En la <B>Figura 11:</B><BR><BR>
+	<I>Caudal máximo (Kbps) de los módems ADSL en función de la longitud del bucle de abonado,</I> se representa la curva del caudal máximo en Kbps, tanto en sentido ascendente como descendente, que se puede conseguir sobre un bucle de abonado con un calibre de 0,405 mm., sin ramas multipladas. En la figura se representan las curvas con y sin ruido. La presencia de ruido externo provoca la reducción de la relación Señal/Ruido con la que trabaja cada una de las subportadoras, y esa disminución se traduce en una reducción del caudal de datos que modula a cada subportadora, lo que a su vez implica una reducción del caudal total que se puede transmitir a través del enlace entre el ATU-R y el ATU-C.<BR><BR>
+	Hasta una distancia de 2,6 Km de la central, en presencia de ruido (caso peor), se obtiene un caudal de 2 bps en sentido descendente y 0,9 bps en sentido ascendente. Esto supone que en la práctica, teniendo en cuenta la longitud media del bucle de abonado en las zonas urbanas, la mayor parte de los usuarios están en condiciones de recibir por medio del ADSL un caudal superior a los 2 bps. Este caudal es suficiente para muchos servicios de banda ancha, y desde luego puede satisfacer las necesidades de cualquier internauta, teletrabajador así como de muchas empresas pequeñas y medianas.
+</P>
+<CENTER>
+	<B>Figura 11- Caudal máximo (Kbps) de los módems ADSL en función de la longitud del bucle de abonado</B><BR><BR>
+	<IMG SRC="images/figura11.gif" WIDTH=550 HEIGHT=391 ALT="Figura 11">
+</CENTER>
+<BR><HR COLOR=LIGHTBLUE WIDTH=75% SIZE=4 ALIGN=CENTER NOSHADE><BR>	
+<TABLE ALIGN=CENTER BORDER=0 WIDTH=99%>
+	<TR ALIGN=CENTER>
+		<TD WIDTH=33%><A HREF="encapsulado.htm" onMouseOver="cuadros.src='images/fant0.jpg'" onMouseOut="cuadros.src='images/fant.jpg'" onmousedown="cuadros.src='images/fant1.jpg'">
+			<IMG SRC="images/fant.jpg" NAME="cuadros" BORDER=0></A></TD>
+		<TD WIDTH=33%><A HREF="index-adsl.htm" onmouseover="cuadre.src='images/inicio0.jpg'" onMouseOut="cuadre.src='images/inicio.jpg'">
+			<IMG SRC="images/inicio.jpg" NAME="cuadre" BORDER=0></A></TD>
+	        <TD WIDTH=33%><A HREF="dslam.htm" onmouseover="cuadro.src='images/fsig0.jpg'" onMouseOut="cuadro.src='images/fsig.jpg'" onmousedown="cuadro.src='images/fsig1.jpg'">
+			<IMG SRC="images/fsig.jpg" NAME="cuadro" BORDER=0></A></TD>
+	</TR>
+</TABLE>
+</FONT>
+</BODY>
+</HTL>

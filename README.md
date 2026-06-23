@@ -1,16 +1,6 @@
-```Plaintext
-+-----------------------------------------------------------+
-|   A D S L - W E B   ( 2 0 0 1)   R E S T O R A T I O N    |
-+-----------------------------------------------------------+
-|   Static HTML • No JS • GIFs • Tables • Vintage Internet  |
-+-----------------------------------------------------------+
-```
-# 🌐 **README Retro‑Web 2001 + Profesional/DevOps (versión final cohesiva)**
-
-```markdown
 <div align="center">
 
-# 🌐 ADSL‑WEB 2001  
+# 🌐 ADSL
 ### ★★★ RESTORED • ARCHIVED • PRESERVED ★★★
 
 <img src="https://adsl-web.neocities.org/images/adsl-logo.gif" alt="ADSL Logo" width="180">
@@ -42,6 +32,14 @@ ADSL‑Web was originally created in **2001**, during the era of dial‑up modem
 CRT monitors, and personal homepages hosted on Geocities.  
 This repository contains a **full restoration** of that site, adapted for  
 modern static hosting while preserving its early‑web identity.
+
+```Plaintext
++-----------------------------------------------------------+
+|   A D S L - W E B   ( 2 0 0 1)   R E S T O R A T I O N    |
++-----------------------------------------------------------+
+|   Static HTML • No JS • GIFs • Tables • Vintage Internet  |
++-----------------------------------------------------------+
+```
 
 ### Why restore it in 2026?
 
@@ -81,7 +79,7 @@ images/            → Original images & GIFs
 
 # 🖥️ How People Used It in 2001
 
-In the early 2000s, most home users didn’t run a local web server.  
+In the early 2000s, most home developers didn’t run a local web server.  
 They typically opened `.htm` files directly in the browser:
 
 ```
@@ -91,7 +89,7 @@ index.html
 However, professional developers and system administrators *did* use local servers  
 (Apache, IIS, PWS), especially when working with dynamic content or testing deployments.
 
-This restoration keeps the original “double‑click and open” behavior, but the project  
+This restoration keeps the original Web 1.0 “double‑click and open” behavior, but the project  
 also highlights how using a proper web server can reveal issues — such as charset  
 differences between Windows‑encoded files and Linux‑based hosting environments.
 
@@ -136,4 +134,4 @@ It’s a small project with a big purpose:
 
 Shared for educational, archival, and historical purposes.  
 Feel free to explore and remix — keep the retro spirit alive.
-```
+
